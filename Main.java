@@ -1,43 +1,28 @@
-import Model.Biblioteca;
-import Model.Libro;
+import Model.Persona;
 
-import java.util.ArrayList;
+import java.util.Scanner;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args){
 
-        ArrayList<Libro> listaDePrueba = new ArrayList<>();
+        Scanner ricardo = new Scanner(System.in);
 
-        Biblioteca miBiblioteca = new Biblioteca(listaDePrueba);
-
-        Libro libro1 = new Libro("Juanjo", "Jose", 13.242, 1999);
-        Libro libro2 = new Libro("Franco", "Felipe", 10.231, 2002);
-
-        miBiblioteca.agregarlibro(libro1);
-        miBiblioteca.agregarlibro(libro2);
+        Persona Juan = new Persona("Carlos", 18, 'f');
+        System.out.println(Juan);
 
 
-        System.out.println("-------------------Cantidad actual de libros------------------");
-        miBiblioteca.mostrarLibros();
+        System.out.println("Escriba su nombre: ");
+        Juan.setNombre(ricardo.nextLine());
+        System.out.println("Ingrese su edad: ");
+        Juan.setEdad(ricardo.nextInt());
+        System.out.println("Ingrese su genero (H o F): ");
+        Juan.setGenero(ricardo.next().charAt(0));
+        System.out.println(Juan);
 
-        System.out.println("total de libros: " + miBiblioteca.totalLibros());
-        System.out.println("precio total: " + miBiblioteca.precioTotalLibros());
-        Libro caro = miBiblioteca.libroMasCaro();
-        System.out.println("Libro mas caro: " + caro);
-        System.out.println();
-        Libro barato = miBiblioteca.libroMasBarato();
-        System.out.println("El libro mas barato es: " + barato);
+        Persona orasio = new Persona();
 
-        miBiblioteca.eliminarLibro("Franco");
-        System.out.println("---------------------Cantidad actual de libros despues de eliminar-----------------");
-        miBiblioteca.mostrarLibros();
-        System.out.println("total de libros: " + miBiblioteca.totalLibros());
-
-        miBiblioteca.actualizarPrecio(14000, "Juanjo");
-        System.out.println("--------------Precio con los libros actualizados------------------");
-        miBiblioteca.mostrarLibros();
 
 
 
@@ -46,8 +31,5 @@ public class Main {
 
 
     }
-
-
-
 
 }
